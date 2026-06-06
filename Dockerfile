@@ -20,8 +20,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         unzip \
         xz-utils \
         zip \
-    && rm -rf /var/lib/apt/lists/* \
-    && ln -s /usr/bin/fdfind /usr/local/bin/fd
+    && ln -s /usr/bin/fdfind /usr/local/bin/fd \
+    && rm -rf /var/lib/apt/lists/*
 
 RUN curl -fsSL "https://github.com/jdx/mise/releases/download/${MISE_VERSION}/mise-${MISE_VERSION}-linux-arm64.tar.gz" \
         | tar -xz -C /usr/local/bin --strip-components=2 mise/bin/mise
