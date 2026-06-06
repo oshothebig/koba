@@ -1,5 +1,4 @@
 FROM ubuntu:24.04
-ARG MISE_VERSION=v2026.6.0
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
         build-essential \
@@ -23,5 +22,15 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && ln -s /usr/bin/fdfind /usr/local/bin/fd \
     && rm -rf /var/lib/apt/lists/*
 
-RUN curl -fsSL "https://github.com/jdx/mise/releases/download/${MISE_VERSION}/mise-${MISE_VERSION}-linux-arm64.tar.gz" \
-        | tar -xz -C /usr/local/bin --strip-components=2 mise/bin/mise
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+ENV MISE_INSTALL_PATH="/usr/local/bin/mise"
+
+RUN curl https://mise.run | sh
+RUN echo 'eval "$(mise activate bash)"' >> ~/.bashrc
+RUN mise use -g \
+    # Languages
+    node@lts python@3.14 go bun deno zig \
+    # Package manager
+    uv \
+    # Development tools
+    helix
