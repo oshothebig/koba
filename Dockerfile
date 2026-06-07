@@ -5,21 +5,17 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         ca-certificates \
         curl \
         dnsutils \
-        fd-find \
         file \
         git \
         iproute2 \
         iputils-ping \
-        jq \
         less \
         openssh-client \
-        ripgrep \
         tmux \
         tree \
         unzip \
         xz-utils \
         zip \
-    && ln -s /usr/bin/fdfind /usr/local/bin/fd \
     && rm -rf /var/lib/apt/lists/*
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
@@ -33,6 +29,6 @@ RUN mise use -g \
     # Package manager
     uv \
     # Development tools
-    bat fzf gh helix just \
+    bat fd fzf gh helix jq just ripgrep \
     # Coding agents
     claude-code codex opencode pi
