@@ -33,4 +33,4 @@ RUN mise use -g \
     # Package manager
     uv \
     # Development tools
-    helix
+    bat fzf gh helix just
