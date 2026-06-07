@@ -33,4 +33,6 @@ RUN mise use -g \
     # Package manager
     uv \
     # Development tools
-    bat fzf gh helix just
+    bat fzf gh helix just \
+    # Coding agents
+    claude-code codex opencode pi
