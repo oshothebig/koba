@@ -1,4 +1,4 @@
 # Issues
 
-- [ ] Dockerfile のマルチアーキテクチャ対応
+- [x] Dockerfile のマルチアーキテクチャ対応
 - [ ] `mise` バイナリの署名検証
