@@ -25,7 +25,7 @@ RUN curl https://mise.run | sh
 RUN echo 'eval "$(mise activate bash)"' >> ~/.bashrc
 RUN mise use -g \
     # Languages
-    node@lts python@3.14 go bun deno zig \
+    node@lts python@3.14 go bun \
     # Package manager
     uv \
     # Development tools
