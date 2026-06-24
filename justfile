@@ -10,6 +10,5 @@ build:
 run:
     docker run --rm -it \
     -v "$(pwd):/workspace" \
-    -w /workspace \
     {{ image }}:{{ tag }} \
     bash

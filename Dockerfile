@@ -20,6 +20,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 ENV MISE_INSTALL_PATH="/usr/local/bin/mise"
+WORKDIR /workspace
 
 RUN curl https://mise.run | sh
 RUN echo 'eval "$(mise activate bash)"' >> ~/.bashrc
