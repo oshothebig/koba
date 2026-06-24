@@ -26,5 +26,5 @@ RUN extrepo enable mise \
     && rm -rf /var/lib/apt/lists/*
 RUN echo 'eval "$(mise activate bash)"' >> ~/.bashrc
 RUN mkdir -p /root/.config/mise
-COPY mise.toml /root/.config/mise/config.toml
+COPY config/mise.toml /root/.config/mise/config.toml
 RUN mise install --yes
