@@ -5,6 +5,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         ca-certificates \
         curl \
         dnsutils \
+        extrepo \
         file \
         git \
         iproute2 \
@@ -15,14 +16,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         tree \
         unzip \
         xz-utils \
-        zip \
-    && rm -rf /var/lib/apt/lists/*
+        zip
 
-SHELL ["/bin/bash", "-o", "pipefail", "-c"]
-ENV MISE_INSTALL_PATH="/usr/local/bin/mise"
 WORKDIR /workspace
 
-RUN curl https://mise.run | sh
+RUN extrepo enable mise \
+    && apt-get update \
+    && apt-get install -y --no-install-recommends mise \
+    && rm -rf /var/lib/apt/lists/*
 RUN echo 'eval "$(mise activate bash)"' >> ~/.bashrc
 RUN mkdir -p /root/.config/mise
 COPY mise.toml /root/.config/mise/config.toml
