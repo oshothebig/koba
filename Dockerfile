@@ -24,12 +24,6 @@ WORKDIR /workspace
 
 RUN curl https://mise.run | sh
 RUN echo 'eval "$(mise activate bash)"' >> ~/.bashrc
-RUN mise use -g \
-    # Languages
-    node@lts python@3.14 go bun \
-    # Package manager
-    uv \
-    # Development tools
-    bat fd fzf gh helix jq just ripgrep \
-    # Coding agents
-    claude-code codex opencode pi
+RUN mkdir -p /root/.config/mise
+COPY mise.toml /root/.config/mise/config.toml
+RUN mise install --yes
