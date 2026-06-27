@@ -20,6 +20,7 @@ yq = "4.53.3"
 terraform = "1.15.6"
 kubectl = "1.35.6"
 kustomize = "5.8.1"
+# Use the latest versions because coding agents are updated frequently.
 claude-code = "latest"
 codex = "latest"
 opencode = "latest"
