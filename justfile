@@ -10,5 +10,6 @@ build:
 run:
     docker run --rm -it \
     -v "$(pwd):/workspace" \
+    -v "{{ home_directory() }}/.config/git/config:/root/.config/git/config:ro" \
     {{ image }}:{{ tag }} \
     bash
