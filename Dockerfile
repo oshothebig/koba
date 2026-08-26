@@ -28,5 +28,6 @@ RUN extrepo enable mise \
 RUN echo 'eval "$(mise activate bash)"' >> ~/.bashrc
 RUN mkdir -p /root/.config/mise
 COPY config/mise.toml /root/.config/mise/config.toml
-RUN mise install --yes
+ARG MISE_INSTALL_CACHE_BUST
+RUN : "${MISE_INSTALL_CACHE_BUST}" && mise install --yes
 RUN echo 'eval "$(starship init bash)"' >> ~/.bashrc
