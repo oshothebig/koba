@@ -23,5 +23,6 @@ kustomize = "5.8.1"
 # Use the latest versions because coding agents are updated frequently.
 claude-code = "latest"
 codex = "latest"
-opencode = "latest"
+# Run postinstall to fetch the platform-specific binary.
+"npm:@opencode/cli" = { version = "latest", npm_args = "--ignore-scripts=false" }
 pi = "latest"
